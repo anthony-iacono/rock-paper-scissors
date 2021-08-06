@@ -4,29 +4,41 @@
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
-  <body>
+  <body class="body">
     <main class="gameboard">
       <header class="gameboard-header">
         <h1 class="gameboard-header__heading">Rock Paper Scissors</h1>
-        <p class="gameboard-header__message"> Choose your game!</p>
       </header>
+      <article class="gameboard-messageboard">
+        <p class="gameboard-messageboard__message"> Choose your game!</p>
+      </article>
       <section class="gameboard-arena">
         <article class="gameboard-arena__mode"></article>
         <article class="gameboard-arena__mode"></article>
-        <img class="gameboard-arena__weapon" src="./assets/black-and-white-rocks.png" alt="rock">
-        <img class="gameboard-arena__weapon" src="./assets/black-and-white-paper.png" alt="paper">
-        <img class="gameboard-arena__weapon" src="./assets/black-and-white-scissors.png" alt="scissors">
+        <article class="gameboard-arena-weapons">
+          <img class="weapon rock" src="./assets/black-and-white-rocks.png" alt="rock">
+          <img class="weapon paper" src="./assets/black-and-white-paper.png" alt="paper">
+          <img class="weapon scissors" src="./assets/black-and-white-scissors.png" alt="scissors">
+        </article>
       </section>
     </main>
-    <section class="player">
-      <p class="player__icon">🤓</p>
-      <p class="player__type">Human</p>
-      <p class="player__counter-label">Wins: <span class="player__counter"></span></p>
+    <section class="player player_human">
+      <article class="player__card">
+        <p class="player__avatar">🤓</p>
+        <p class="player__type">Human</p>
+      </article>
+      <article class="player__wins">
+        <p class="player__wins-label">Wins: <span class="player__wins-counter"></span>
+      </article>
     </section>
-    <section class="player">
-      <p class="player__icon">💻</p>
-      <p class="player__label">Human</p>
-      <p class="player__counter-label">Wins: <span class="player__counter"></span></p>
+    <section class="player player_computer">
+      <article class="player__card">
+        <p class="player__avatar">💻</p>
+        <p class="player__type">Computer</p>
+      </article>
+      <article class="player__wins">
+        <p class="player__wins-label">Wins: <span class="player__wins-counter"></span>
+      </article>
     </section>
   </body>
   <script type="text/javascript" src="main.js"></script>
