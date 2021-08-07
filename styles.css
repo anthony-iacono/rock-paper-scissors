@@ -7,13 +7,14 @@
   grid-template-columns: 1fr 3fr 1fr;
   margin: 0;
   align-items: stretch;
+  height: 100vh;
 }
 
 .gameboard {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
+  background-color: #C56AF0;
 }
 
 .gameboard-header {
@@ -75,12 +76,12 @@
 }
 
 .player {
-  border: 1px solid blue;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: #CD82EF;
 }
 
 .player_human {
@@ -95,6 +96,7 @@
 
 .player__avatar {
   margin: 0;
+  font-size: 2em;
 }
 
 .player__type {
