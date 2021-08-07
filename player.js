@@ -1,17 +1,17 @@
 class Player {
-  constructor(name, token, wins) {
+  constructor(name, token) {
     this.name = name;
-    this.token = token || 🤓;
-    this.wins = wins;
+    this.token = token;
+    this.wins;
     this.weapon;
   }
 
   saveWinsToStorage() {
-    localStorage.setItem(`${this.name}Wins`, `${this.wins}`);
+    return localStorage.setItem(`${this.name}Wins`, `${this.wins}`);
   }
 
   retrieveWinsFromStorage() {
-    localStorage.getItem(`${this.name}Wins`);
+    return localStorage.getItem(`${this.name}Wins`);
   }
 
   takeTurn(weapon) {
