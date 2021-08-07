@@ -48,6 +48,13 @@
   padding: 30px 5px;
 }
 
+.mode-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 400px;
+}
+
 .mode {
   margin: 0;
   padding: 5%;
