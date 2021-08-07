@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: white;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  margin: 0;
+  align-items: stretch;
+  height: 100vh;
+}
+
+.gameboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #C56AF0;
+}
+
+.gameboard-header {
+  display: flex;
+  justify-content: center;
+}
+
+.gameboard-header__heading {
+  margin: 0;
+  padding: 5px;
+}
+
+.gameboard-messageboard {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.gameboard-messageboard__message {
+  margin: 0;
+  padding: 5px;
+}
+
+.gameboard-arena {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5px;
+}
+
+.mode {
+  margin: 0;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #AA4AD9;
+}
+
+.mode__heading {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.mode__rule {
+  margin: 0;
+}
+
+.gameboard-arena-weapons {
+  padding: 20px 10px;
+  display: flex;
+
+}
+
+.weapon {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.player {
+  padding: 40px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #CD82EF;
+}
+
+.player_human {
+  grid-row: 1;
+}
+
+.player__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player__avatar {
+  margin: 0;
+  font-size: 2em;
+}
+
+.player__type {
+  margin: 0;
+  /* padding: 5px; */
+}
+
+.player__wins {
+  padding-top: 5px;
+}
+
+.player__change-game-btn {
+  background-color: #CD82EF;
+  text-transform: uppercase;gs
+}
