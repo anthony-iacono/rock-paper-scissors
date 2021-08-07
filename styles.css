@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
+  color: white;
 }
 
 .body {
@@ -41,18 +43,19 @@
 .gameboard-arena {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 30px 5px;
 }
 
 .mode {
   margin: 0;
-  padding: 10%;
-  border: 1px solid green;
+  padding: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #AA4AD9;
 }
 
 .mode__heading {
@@ -76,7 +79,7 @@
 }
 
 .player {
-  padding: 10px;
+  padding: 40px 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -101,9 +104,14 @@
 
 .player__type {
   margin: 0;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .player__wins {
   padding-top: 5px;
+}
+
+.player__change-game-btn {
+  background-color: #CD82EF;
+  text-transform: uppercase;gs
 }
