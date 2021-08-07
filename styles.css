@@ -40,9 +40,27 @@
   padding: 30px 5px;
 }
 
-.gameboard-arena__mode {
+.mode {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid green;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.mode__heading {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.mode__rule {
+  margin: 0;
+}
+
+.gameboard-arena-weapons {
+  padding: 10px;
 }
 
 .weapon {
