@@ -7,16 +7,22 @@ class Game {
   }
 
   checkForWin(humanWeapon, computerWeapon) {
-    if (human.weapon === computer.weapon) {
-      this.messsage = '🤓 It\'s a draw! 💻'
-    } else if (human.weapon === 'rock' && computer.weapon === 'scissors') {
-      human.wins++;
-      human.saveWinsToStorage();
+    let draw = this.human.weapon === this.computer.weapon;
+    let humanWins =
+    (this.human.weapon === 'rock' && this.computer.weapon === 'scissors')
+    || (this.human.weapon === 'paper' && this.computer.weapon === 'rock')
+    || (this.human.weapon === 'scissors' && this.computer.weapon === 'paper');
+
+    if (draw) {
+      this.message = '🤓 It\'s a draw! 💻'
+    } else if (humanWins) {
+      this.human.wins++;
+      this.human.saveWinsToStorage();
       this.message = '🤓 Human won this round! 🤓'
-    } else if (human.weapon === 'rock' && computer.weapon === 'paper') {
-      computer.wins++;
-      computer.saveWinsToStorage();
-      return '💻 Computer won this round! 💻';
+    } else {
+      this.computer.wins++;
+      this.computer.saveWinsToStorage();
+      this.message = '💻 Computer won this round! 💻';
     }
   }
 }
