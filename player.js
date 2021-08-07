@@ -2,12 +2,12 @@ class Player {
   constructor(name, token) {
     this.name = name;
     this.token = token;
-    this.wins;
+    this.wins = 0;
     this.weapon;
   }
 
   saveWinsToStorage() {
-    return localStorage.setItem(this.name + 'Wins', this.wins);
+    return localStorage.setItem(this.name + 'Wins', `${this.wins}`);
   }
 
   retrieveWinsFromStorage() {
