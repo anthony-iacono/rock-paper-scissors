@@ -115,3 +115,7 @@
   background-color: #CD82EF;
   text-transform: uppercase;gs
 }
+
+.hidden {
+  display: none;
+}

@@ -13,13 +13,13 @@
         <p class="gameboard-messageboard__message"> Choose your game!</p>
       </article>
       <section class="gameboard-arena">
-        <article class="mode">
+        <article class="mode js-classic-mode">
           <h2 class="mode__heading">Classic</h2>
           <p class="mode__rule">rock > scissors</p>
           <p class="mode__rule">scissors > paper</p>
           <p class="mode__rule">paper > rock</p>
         </article>
-        <article class="mode">
+        <article class="mode js-advanced-mode">
           <h2 class="mode__heading">Advanced</h2>
           <p class="mode__rule">rock > scissors & lizard</p>
           <p class="mode__rule">scissors > paper & lizard</p>
@@ -28,11 +28,11 @@
           <p class="mode__rule">lizard > paper & Spock</p>
         </article>
         <article class="gameboard-arena-weapons">
-          <img class="weapon rock" src="./assets/black-and-white-rocks.png" alt="rock">
-          <img class="weapon paper" src="./assets/black-and-white-paper.png" alt="paper">
-          <img class="weapon scissors" src="./assets/black-and-white-scissors.png" alt="scissors">
-          <img class="weapon spock" src="./assets/black-and-white-spock.png" alt="spock">
-          <img class="weapon scissors" src="./assets/black-and-white-lizard.png" alt="lizard">
+          <img class="weapon rock hidden" src="./assets/black-and-white-rocks.png" alt="rock">
+          <img class="weapon paper hidden" src="./assets/black-and-white-paper.png" alt="paper">
+          <img class="weapon scissors hidden" src="./assets/black-and-white-scissors.png" alt="scissors">
+          <img class="weapon spock hidden" src="./assets/black-and-white-spock.png" alt="spock">
+          <img class="weapon scissors hidden" src="./assets/black-and-white-lizard.png" alt="lizard">
         </article>
       </section>
     </main>
@@ -42,9 +42,9 @@
         <h3 class="player__type">Human</h3>
       </article>
       <article class="player__wins">
-        <p class="player__wins-label">Wins: <span class="player__wins-counter"></span></p>
+        <p class="player__wins-label">Wins: <span class="player__wins-counter">0</span></p>
       </article>
-      <button class="player__change-game-btn">Change game?</button>
+      <button class="player__change-game-btn hidden">Change game?</button>
     </section>
     <section class="player player_computer">
       <article class="player__card">
@@ -52,7 +52,7 @@
         <h3 class="player__type">Computer</h3>
       </article>
       <article class="player__wins">
-        <p class="player__wins-label">Wins: <span class="player__wins-counter"></span>
+        <p class="player__wins-label">Wins: <span class="player__wins-counter">0</span>
       </article>
     </section>
   </body>
