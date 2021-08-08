@@ -30,10 +30,6 @@
   text-transform: uppercase;gs
 }
 
-.hidden {
-  display: none;
-}
-
 .main {
   display: flex;
   flex-direction: column;
@@ -65,7 +61,7 @@
   margin: 0;
 }
 
-.modes {
+.mode-section {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -109,4 +105,8 @@
 .weapon {
   max-height: 100px;
   max-width: 100px;
+}
+
+.hidden {
+  display: none;
 }
