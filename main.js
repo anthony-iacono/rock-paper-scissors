@@ -9,9 +9,11 @@ const paper = document.querySelector('.js-paper');
 const scissors = document.querySelector('.js-scissors');
 const spock = document.querySelector('.js-spock');
 const lizard = document.querySelector('.js-lizard');
-let humanCounter = document.querySelector('.js-human-counter');
 let computerCounter = document.querySelector('.js-computer-counter');
+let humanCounter = document.querySelector('.js-human-counter');
+let message = document.querySelector('.js-message');
 
+message.innerText = game.message;
 humanCounter.innerText = game.human.wins;
 computerCounter.innerText = game.computer.wins;
 
@@ -22,7 +24,7 @@ arsenal.addEventListener('click', function() {
 
 function startClassicGame() {
   game.type = 'classic';
-  game.message = 'Choose your fighter!';
+  message.innerText = 'Choose your fighter!';
   modeSection.classList.add('hidden');
   arsenal.classList.remove('hidden');
 }
@@ -39,4 +41,7 @@ function fight(event) {
 
   event.target.classList.remove('hidden');
   game.checkForWin();
+  message.innerText = game.message;
+  humanCounter.innerText = game.human.wins;
+  computerCounter.innerText = game.computer.wins;
 }
