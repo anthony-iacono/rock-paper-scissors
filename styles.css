@@ -4,6 +4,24 @@
   color: white;
 }
 
+.arena {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5px;
+}
+
+.arsenal {
+  padding: 20px 10px;
+  display: flex;
+}
+
+.arsenal__weapon {
+  max-height: 100px;
+  max-width: 100px;
+}
+
 .body {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -12,40 +30,21 @@
   height: 100vh;
 }
 
-.gameboard {
+.change-game-btn {
+  background-color: #CD82EF;
+  text-transform: uppercase;gs
+}
+
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #C56AF0;
 }
 
-.gameboard-header {
-  display: flex;
-  justify-content: center;
-}
-
-.gameboard-header__heading {
+.message {
   margin: 0;
   padding: 5px;
-}
-
-.gameboard-messageboard {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
-
-.gameboard-messageboard__message {
-  margin: 0;
-  padding: 5px;
-}
-
-.gameboard-arena {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 5px;
 }
 
 .mode {
@@ -67,15 +66,15 @@
   margin: 0;
 }
 
-.gameboard-arena-weapons {
-  padding: 20px 10px;
+.mode-section {
   display: flex;
-
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 400px;
 }
 
-.weapon {
-  max-height: 100px;
-  max-width: 100px;
+.mode-section__reset-wins-button {
+  background-color: gray;
 }
 
 .player {
@@ -89,9 +88,6 @@
 
 .player_human {
   grid-row: 1;
-}
-
-.player__card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,14 +100,21 @@
 
 .player__type {
   margin: 0;
-  /* padding: 5px; */
 }
 
 .player__wins {
   padding-top: 5px;
 }
 
-.player__change-game-btn {
-  background-color: #CD82EF;
-  text-transform: uppercase;gs
+.title {
+  margin: 0;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.unclickable {
+  pointer-events: none;
 }

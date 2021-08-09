@@ -5,21 +5,17 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body class="body">
-    <main class="gameboard">
-      <header class="gameboard-header">
-        <h1 class="gameboard-header__heading">Rock Paper Scissors</h1>
-      </header>
-      <article class="gameboard-messageboard">
-        <p class="gameboard-messageboard__message"> Choose your game!</p>
-      </article>
-      <section class="gameboard-arena">
-        <article class="mode">
+    <main class="main">
+      <h1 class="title">Rock Paper Scissors</h1>
+      <h2 class="message js-message"></h2>
+      <section class="mode-section js-mode-section">
+        <article class="mode js-classic-mode">
           <h2 class="mode__heading">Classic</h2>
           <p class="mode__rule">rock > scissors</p>
           <p class="mode__rule">scissors > paper</p>
           <p class="mode__rule">paper > rock</p>
         </article>
-        <article class="mode">
+        <article class="mode js-advanced-mode">
           <h2 class="mode__heading">Advanced</h2>
           <p class="mode__rule">rock > scissors & lizard</p>
           <p class="mode__rule">scissors > paper & lizard</p>
@@ -27,32 +23,26 @@
           <p class="mode__rule">Spock > scissors & rock</p>
           <p class="mode__rule">lizard > paper & Spock</p>
         </article>
-        <article class="gameboard-arena-weapons">
-          <img class="weapon rock" src="./assets/black-and-white-rocks.png" alt="rock">
-          <img class="weapon paper" src="./assets/black-and-white-paper.png" alt="paper">
-          <img class="weapon scissors" src="./assets/black-and-white-scissors.png" alt="scissors">
-          <img class="weapon spock" src="./assets/black-and-white-spock.png" alt="spock">
-          <img class="weapon scissors" src="./assets/black-and-white-lizard.png" alt="lizard">
-        </article>
+        <button class="mode-section__reset-wins-button js-reset-btn">Reset Wins</button>
+      </section>
+      <section class="arsenal hidden js-arsenal">
+        <img class="arsenal__weapon js-weapon js-rock" src="./assets/black-and-white-rocks.png" alt="rock">
+        <img class="arsenal__weapon js-weapon js-paper" src="./assets/black-and-white-paper.png" alt="paper">
+        <img class="arsenal__weapon js-weapon js-scissors" src="./assets/black-and-white-scissors.png" alt="scissors">
+        <img class="arsenal__weapon hidden js-weapon js-spock" src="./assets/black-and-white-spock.png" alt="spock">
+        <img class="arsenal__weapon hidden js-weapon js-lizard" src="./assets/black-and-white-lizard.png" alt="lizard">
       </section>
     </main>
     <section class="player player_human">
-      <article class="player__card">
-        <p class="player__avatar">🤓</p>
-        <h3 class="player__type">Human</h3>
-      </article>
-      <article class="player__wins">
-        <p class="player__wins-label">Wins: <span class="player__wins-counter"></span></p>
-      </article>
-      <button class="player__change-game-btn">Change game?</button>
+      <span class="player__avatar">🤓</span>
+      <h2 class="player__type">Human</h2>
+      <p class="player__wins">Wins: <span class="js-human-counter"></span></p>
+      <button class="change-game-btn js-change-game-btn hidden">Change game?</button>
     </section>
-    <section class="player player_computer">
-      <article class="player__card">
-        <p class="player__avatar">💻</p>
-        <h3 class="player__type">Computer</h3>
-      </article>
-      <article class="player__wins">
-        <p class="player__wins-label">Wins: <span class="player__wins-counter"></span>
+    <section class="player">
+        <span class="player__avatar">💻</span>
+        <h2 class="player__type">Computer</h2>
+        <p>Wins: <span class="player__wins js-computer-counter">0</span>
       </article>
     </section>
   </body>
