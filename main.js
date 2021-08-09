@@ -50,15 +50,14 @@ function fight(event) {
   const outcome = game.checkForWin();
   if (outcome === 'draw') {
     const humanWeaponEl = document.querySelector(`.js-${humanWeapon}`);
-    console.log(humanWeaponEl);
     let drawWeapon = humanWeaponEl.cloneNode(false);
-    console.log(drawWeapon);
     arsenal.appendChild(drawWeapon);
   }
 
   message.innerText = game.message;
   humanCounter.innerText = game.human.wins;
   computerCounter.innerText = game.computer.wins;
+  arsenal.classList.add('unclickable');
 }
 
 function resetAndRefresh () {
