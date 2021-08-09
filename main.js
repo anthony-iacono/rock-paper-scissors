@@ -1,6 +1,6 @@
 const game = new Game;
-const classicMode = document.querySelector('.js-classic-mode');
-const advancedMode = document.querySelector('.js-advanced-mode');
+// const classicMode = document.querySelector('.js-classic-mode');
+// const advancedMode = document.querySelector('.js-advanced-mode');
 const modeSection = document.querySelector('.js-mode-section');
 const arsenal = document.querySelector('.js-arsenal');
 const weapons = document.querySelectorAll('.js-weapon');
@@ -24,17 +24,23 @@ message.innerText = game.message;
 humanCounter.innerText = game.human.retrieveWinsFromStorage();
 computerCounter.innerText = game.computer.retrieveWinsFromStorage();
 
-classicMode.addEventListener('click', startClassicGame);
+modeSection.addEventListener('click', function(event) {startGame(event)});
 arsenal.addEventListener('click', function() {fight(event)});
 resetBtn.addEventListener('click', resetAndRefresh);
 changeGameBtn.addEventListener('click', changeGame);
 
-function startClassicGame() {
-  game.type = 'classic';
-  message.innerText = 'Choose your fighter!';
+function startGame(event) {
   modeSection.classList.add('hidden');
-  arsenal.classList.remove('hidden');
   changeGameBtn.classList.remove('hidden');
+  message.innerText = 'Choose your fighter!';
+  arsenal.classList.remove('hidden');
+  if (event.target.matches('.js-classic-mode')) {
+    game.type = 'classic';
+    spock.classList.add('hidden');
+    lizard.classList.add('hidden');
+  } else if (event.target.matches('.js-advanced-mode')) {
+    game.type = 'advanced';
+  }
 }
 
 function fight(event) {
