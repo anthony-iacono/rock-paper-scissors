@@ -19,6 +19,7 @@ class Player {
       const weapons = ['rock', 'paper', 'scissors'];
       const randomIndex = Math.floor(Math.random() * 3)
       this.weapon = weapons[randomIndex];
+      return `.js-${game.computer.weapon}`
     } else {
       this.weapon = weapon;
     }

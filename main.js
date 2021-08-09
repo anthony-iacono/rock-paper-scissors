@@ -28,16 +28,15 @@ function startClassicGame() {
 }
 
 function fight(event) {
-  weapons.forEach((img) => img.classList.add('hidden'));
-  event.target.classList.remove('hidden');
-
   game.human.takeTurn(event.target.alt);
-  game.computer.takeTurn();
-  const computerWeapon = `.js-${game.computer.weapon}`
-  console.log(computerWeapon);
+  const computerWeapon = game.computer.takeTurn();
+  weapons.forEach((img) => img.classList.add('hidden'));
   for (let i = 0; i < weapons.length; i++) {
     if (weapons[i].matches(computerWeapon)) {
       weapons[i].classList.remove('hidden');
     }
   }
+
+  event.target.classList.remove('hidden');
+  game.checkForWin();
 }

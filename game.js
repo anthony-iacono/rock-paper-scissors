@@ -1,12 +1,12 @@
 class Game {
   constructor() {
     this.type = 'classic';
-    this.message = 'Choose your game'
+    this.message = 'Choose your game';
     this.human = new Player('Human', '🤓');
     this.computer = new Player('Computer', '💻');
   }
 
-  checkForWin(humanWeapon, computerWeapon) {
+  checkForWin() {
     let draw = this.human.weapon === this.computer.weapon;
     let humanWins =
     (this.human.weapon === 'rock' && this.computer.weapon === 'scissors')
