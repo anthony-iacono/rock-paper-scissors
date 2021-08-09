@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.type = 'classic';
+    this.type;
     this.message = 'Choose your game!';
     this.human = new Player('Human', '🤓');
     this.computer = new Player('Computer', '💻');

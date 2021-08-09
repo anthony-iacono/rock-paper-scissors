@@ -14,8 +14,8 @@ let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
 
 message.innerText = game.message;
-humanCounter.innerText = game.human.wins;
-computerCounter.innerText = game.computer.wins;
+humanCounter.innerText = game.human.retrieveWinsFromStorage();
+computerCounter.innerText = game.computer.retrieveWinsFromStorage();
 
 classicMode.addEventListener('click', startClassicGame);
 arsenal.addEventListener('click', function() {

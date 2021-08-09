@@ -7,11 +7,17 @@ class Player {
   }
 
   saveWinsToStorage() {
-    return localStorage.setItem(this.name + 'Wins', `${this.wins}`);
+    localStorage.setItem(this.name + 'Wins', `${this.wins}`);
   }
 
   retrieveWinsFromStorage() {
-    return localStorage.getItem(this.name + 'Wins');
+    let wins = localStorage.getItem(this.name + 'Wins');
+    console.log(wins);
+    if (!wins) {
+      return 0;
+    } else {
+      return wins;
+    }
   }
 
   takeTurn(weapon) {
