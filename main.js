@@ -10,6 +10,7 @@ const scissors = document.querySelector('.js-scissors');
 const spock = document.querySelector('.js-spock');
 const lizard = document.querySelector('.js-lizard');
 const resetBtn = document.querySelector('.js-reset-btn');
+const changeGameBtn = document.querySelector('.js-change-game-btn');
 let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
@@ -24,12 +25,14 @@ computerCounter.innerText = game.computer.retrieveWinsFromStorage();
 classicMode.addEventListener('click', startClassicGame);
 arsenal.addEventListener('click', function() {fight(event)});
 resetBtn.addEventListener('click', resetAndRefresh);
+changeGameBtn.addEventListener('click', changeGame);
 
 function startClassicGame() {
   game.type = 'classic';
   message.innerText = 'Choose your fighter!';
   modeSection.classList.add('hidden');
   arsenal.classList.remove('hidden');
+  changeGameBtn.classList.remove('hidden');
 }
 
 function fight(event) {
@@ -61,4 +64,10 @@ function fight(event) {
 function resetAndRefresh () {
   localStorage.clear();
   location.reload();
+}
+
+function changeGame() {
+  modeSection.classList.remove('hidden');
+  arsenal.classList.add('hidden');
+  changeGameBtn.classList.add('hidden');
 }
