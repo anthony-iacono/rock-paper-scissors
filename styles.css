@@ -17,6 +17,11 @@
   display: flex;
 }
 
+.arsenal__weapon {
+  max-height: 100px;
+  max-width: 100px;
+}
+
 .body {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -100,11 +105,6 @@
 .title {
   margin: 0;
   padding: 20px;
-}
-
-.weapon {
-  max-height: 100px;
-  max-width: 100px;
 }
 
 .hidden {

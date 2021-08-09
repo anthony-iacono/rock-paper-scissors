@@ -1,22 +1,21 @@
 const game = new Game;
-const classicBtn = document.querySelector('.js-classic-btn');
-const advancedBtn = document.querySelector('.js-advanced-btn');
+const classicMode = document.querySelector('.js-classic-mode');
+const advancedMode = document.querySelector('.js-advanced-mode');
 const modeSection = document.querySelector('.js-mode-section');
-const arsenal = document.querySelector('.arsenal');
-const rock = document.querySelector('.rock')
-const paper = document.querySelector('.paper')
-const scissors = document.querySelector('.scissors')
-const spock = document.querySelector('.spock')
-const lizard = document.querySelector('.lizard')
-
-
+const arsenal = document.querySelector('.js-arsenal');
+const weapons = document.querySelectorAll('.js-weapon');
+const rock = document.querySelector('.js-rock');
+const paper = document.querySelector('.js-paper');
+const scissors = document.querySelector('.js-scissors');
+const spock = document.querySelector('.js-spock');
+const lizard = document.querySelector('.js-lizard');
 let humanCounter = document.querySelector('.js-human-counter');
 let computerCounter = document.querySelector('.js-computer-counter');
 
 humanCounter.innerText = game.human.wins;
 computerCounter.innerText = game.computer.wins;
 
-classicBtn.addEventListener('click', startClassicGame);
+classicMode.addEventListener('click', startClassicGame);
 arsenal.addEventListener('click', function() {
   fight(event);
 });
@@ -29,7 +28,9 @@ function startClassicGame() {
 }
 
 function fight(event) {
-  console.log(event.target.alt);
+  weapons.forEach((img) => img.classList.add('hidden'));
+  event.target.classList.remove('hidden');
+
   game.human.takeTurn(event.target.alt);
   game.computer.takeTurn();
 }
