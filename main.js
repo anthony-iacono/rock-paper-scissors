@@ -9,6 +9,7 @@ const paper = document.querySelector('.js-paper');
 const scissors = document.querySelector('.js-scissors');
 const spock = document.querySelector('.js-spock');
 const lizard = document.querySelector('.js-lizard');
+const resetBtn = document.querySelector('.js-reset-btn');
 let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
@@ -21,9 +22,8 @@ humanCounter.innerText = game.human.retrieveWinsFromStorage();
 computerCounter.innerText = game.computer.retrieveWinsFromStorage();
 
 classicMode.addEventListener('click', startClassicGame);
-arsenal.addEventListener('click', function() {
-  fight(event);
-});
+arsenal.addEventListener('click', function() {fight(event)});
+resetBtn.addEventListener('click', resetAndRefresh);
 
 function startClassicGame() {
   game.type = 'classic';
@@ -47,4 +47,9 @@ function fight(event) {
   message.innerText = game.message;
   humanCounter.innerText = game.human.wins;
   computerCounter.innerText = game.computer.wins;
+}
+
+function resetAndRefresh () {
+  localStorage.clear();
+  location.reload();
 }

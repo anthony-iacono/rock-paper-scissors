@@ -73,6 +73,10 @@
   min-height: 400px;
 }
 
+.mode-section__reset-wins-button {
+  background-color: gray;
+}
+
 .player {
   padding: 40px 10px;
   display: flex;
