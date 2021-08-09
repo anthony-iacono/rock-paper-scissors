@@ -14,6 +14,8 @@ const changeGameBtn = document.querySelector('.js-change-game-btn');
 let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
+let isDraw;
+let drawWeapon;
 
 game.human.wins = game.human.retrieveWinsFromStorage();
 game.computer.wins = game.computer.retrieveWinsFromStorage();
@@ -50,14 +52,17 @@ function fight(event) {
   const outcome = game.checkForWin();
   if (outcome === 'draw') {
     const humanWeaponEl = document.querySelector(`.js-${humanWeapon}`);
-    let drawWeapon = humanWeaponEl.cloneNode(false);
+    drawWeapon = humanWeaponEl.cloneNode(false);
     arsenal.appendChild(drawWeapon);
+    isDraw = true;
+  } else {
+    isDraw = false;
   }
-
   message.innerText = game.message;
   humanCounter.innerText = game.human.wins;
   computerCounter.innerText = game.computer.wins;
   arsenal.classList.add('unclickable');
+  setTimeout(resetArsenal, 2.0 * 1000);
 }
 
 function resetAndRefresh () {
@@ -69,4 +74,23 @@ function changeGame() {
   modeSection.classList.remove('hidden');
   arsenal.classList.add('hidden');
   changeGameBtn.classList.add('hidden');
+}
+
+function resetArsenal () {
+  message.innerText = 'Choose your fighter!';
+  arsenal.classList.remove('hidden');
+  arsenal.classList.remove('unclickable');
+  if (isDraw) {
+    arsenal.removeChild(drawWeapon);
+  }
+
+  if (game.type === 'classic') {
+    for (let i = 0; i < weapons.length - 2; i++) {
+      weapons[i].classList.remove('hidden');
+    }
+  } else {
+    for (let i = 0; i < weapons.length; i++) {
+      weapons[i].classList.remove('hidden');
+    }
+  }
 }
