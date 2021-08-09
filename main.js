@@ -33,4 +33,11 @@ function fight(event) {
 
   game.human.takeTurn(event.target.alt);
   game.computer.takeTurn();
+  const computerWeapon = `.js-${game.computer.weapon}`
+  console.log(computerWeapon);
+  for (let i = 0; i < weapons.length; i++) {
+    if (weapons[i].matches(computerWeapon)) {
+      weapons[i].classList.remove('hidden');
+    }
+  }
 }
