@@ -7,15 +7,15 @@ class Game {
   }
 
   checkForWin() {
-    let draw = this.human.weapon === this.computer.weapon;
-    let humanWins =
+    const draw = this.human.weapon === this.computer.weapon;
+    const humanWon =
     (this.human.weapon === 'rock' && this.computer.weapon === 'scissors')
     || (this.human.weapon === 'paper' && this.computer.weapon === 'rock')
     || (this.human.weapon === 'scissors' && this.computer.weapon === 'paper');
 
     if (draw) {
       this.message = '🤓 It\'s a draw! 💻'
-    } else if (humanWins) {
+    } else if (humanWon) {
       this.human.wins++;
       this.human.saveWinsToStorage();
       this.message = '🤓 Human won this round! 🤓'

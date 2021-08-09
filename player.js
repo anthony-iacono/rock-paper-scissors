@@ -11,8 +11,7 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-    let wins = localStorage.getItem(this.name + 'Wins');
-    console.log(wins);
+    const wins = localStorage.getItem(this.name + 'Wins');
     if (!wins) {
       return 0;
     } else {

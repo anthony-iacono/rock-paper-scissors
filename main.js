@@ -13,6 +13,9 @@ let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
 
+game.human.wins = game.human.retrieveWinsFromStorage();
+game.computer.wins = game.computer.retrieveWinsFromStorage();
+
 message.innerText = game.message;
 humanCounter.innerText = game.human.retrieveWinsFromStorage();
 computerCounter.innerText = game.computer.retrieveWinsFromStorage();
@@ -33,13 +36,13 @@ function fight(event) {
   game.human.takeTurn(event.target.alt);
   const computerWeapon = game.computer.takeTurn();
   weapons.forEach((img) => img.classList.add('hidden'));
+  event.target.classList.remove('hidden');
   for (let i = 0; i < weapons.length; i++) {
     if (weapons[i].matches(computerWeapon)) {
       weapons[i].classList.remove('hidden');
     }
   }
 
-  event.target.classList.remove('hidden');
   game.checkForWin();
   message.innerText = game.message;
   humanCounter.innerText = game.human.wins;
