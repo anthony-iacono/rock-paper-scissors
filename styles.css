@@ -66,6 +66,8 @@
 
 .mode__rule {
   margin: 0;
+  text-align: center;
+/*   width: 100%; */
 }
 
 .mode-section {
@@ -73,6 +75,8 @@
   flex-direction: column;
   justify-content: space-around;
   min-height: 400px;
+  width: 20vw;
+  min-width: 200px;
 }
 
 .mode-section__reset-wins-btn {
