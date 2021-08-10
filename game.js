@@ -9,7 +9,6 @@ class Game {
   checkForWin() {
     if (this.draw()) {
       this.message = '🤓 It\'s a draw! 💻'
-      return 'draw';
     } else if (this.humanWon()) {
       this.human.wins++;
       this.human.saveWinsToStorage();
