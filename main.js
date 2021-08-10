@@ -1,6 +1,6 @@
 const game = new Game;
-// const classicMode = document.querySelector('.js-classic-mode');
-// const advancedMode = document.querySelector('.js-advanced-mode');
+const classicMode = document.querySelector('.js-classic-mode');
+const advancedMode = document.querySelector('.js-advanced-mode');
 const modeSection = document.querySelector('.js-mode-section');
 const arsenal = document.querySelector('.js-arsenal');
 const weapons = document.querySelectorAll('.js-weapon');
@@ -24,23 +24,30 @@ message.innerText = game.message;
 humanCounter.innerText = game.human.retrieveWinsFromStorage();
 computerCounter.innerText = game.computer.retrieveWinsFromStorage();
 
-modeSection.addEventListener('click', function(event) {startGame(event)});
+classicMode.addEventListener('click', startClassicGame);
+advancedMode.addEventListener('click', startAdvancedGame);
 arsenal.addEventListener('click', function() {fight(event)});
 resetBtn.addEventListener('click', resetAndRefresh);
 changeGameBtn.addEventListener('click', changeGame);
 
-function startGame(event) {
+function startClassicGame() {
+  game.type = 'classic';
+  displayGameBoard();
+  spock.classList.add('hidden');
+  lizard.classList.add('hidden');
+}
+
+function startAdvancedGame() {
+  game.type = 'advanced';
+  displayGameBoard();
+}
+
+function displayGameBoard() {
   modeSection.classList.add('hidden');
-  changeGameBtn.classList.remove('hidden');
-  message.innerText = 'Choose your fighter!';
   arsenal.classList.remove('hidden');
-  if (event.target.matches('.js-classic-mode')) {
-    game.type = 'classic';
-    spock.classList.add('hidden');
-    lizard.classList.add('hidden');
-  } else if (event.target.matches('.js-advanced-mode')) {
-    game.type = 'advanced';
-  }
+  changeGameBtn.classList.remove('hidden');
+  weapons.forEach((weapon) => weapon.classList.remove('hidden'));
+  message.innerText = 'Choose your fighter!';
 }
 
 function fight(event) {
@@ -74,6 +81,7 @@ function fight(event) {
 function resetAndRefresh () {
   localStorage.clear();
   location.reload();
+  hideWeapons();
 }
 
 function changeGame() {
@@ -99,4 +107,8 @@ function resetArsenal () {
       weapons[i].classList.remove('hidden');
     }
   }
+}
+
+function hideWeapons() {
+  weapons.forEach((weapon) => weapon.classList.add('hidden'));
 }
