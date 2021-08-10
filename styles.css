@@ -7,6 +7,7 @@
 .arena {
   padding: 20px 10px;
   display: flex;
+  pointer-events: none;
 }
 
 .arsenal {
@@ -74,8 +75,9 @@
   min-height: 400px;
 }
 
-.mode-section__reset-wins-button {
+.mode-section__reset-wins-btn {
   background-color: gray;
+  cursor: pointer;
 }
 
 .player {
