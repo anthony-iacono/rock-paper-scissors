@@ -54,8 +54,21 @@ function showArsenal() {
 function fight(event) {
   game.human.takeTurn(event.target.alt);
   game.computer.takeTurn();
-  const humanWeaponEl = document.querySelector(`.js-${game.human.weapon}`);
-  const computerWeaponEl = document.querySelector(`.js-${game.computer.weapon}`);
+  const humanWeapon = document.querySelector(`.js-${game.human.weapon}`);
+  const computerWeapon = document.querySelector(`.js-${game.computer.weapon}`);
+  const humanWeaponClone = humanWeapon.cloneNode();
+  const computerWeaponClone = computerWeapon.cloneNode();
+
+  arsenal.classList.add('hidden');
+  arena.classList.remove('hidden');
+  arena.innerHTML = '';
+  arena.classList.add('unclickable');
+  arena.appendChild(humanWeaponClone);
+  arena.appendChild(computerWeaponClone);
+  message.innerText = game.message;
+  humanCounter.innerText = game.human.wins;
+  computerCounter.innerText = game.computer.wins;
+  setTimeout(resetGameBoard, 2.0 * 1000);
 
   // weapons.forEach((img) => img.classList.add('hidden'));
   // event.target.classList.remove('hidden');
@@ -75,15 +88,7 @@ function fight(event) {
   //   isDraw = false;
   // }
 
-  arena.innerHTML = '';
-  arena.classList.remove('hidden');
-  arena.classList.add('unclickable');
-  arena.appendChild(humanWeaponEl);
-  arena.appendChild(computerWeaponEl);
-  message.innerText = game.message;
-  humanCounter.innerText = game.human.wins;
-  computerCounter.innerText = game.computer.wins;
-  setTimeout(resetGameBoard, 2.0 * 1000);
+
 }
 
 function resetScore () {
@@ -102,23 +107,24 @@ function changeGame() {
 function resetGameBoard () {
   message.innerText = 'Choose your fighter!';
   arsenal.classList.remove('hidden');
-  showWeapons();
   arena.classList.add('hidden');
   arena.classList.remove('unclickable');
+  arena.removeChild(computerWeaponClone);
+  arena.removeChild(humanWeaponClone);
   //
   // if (isDraw) {
   //   arsenal.removeChild(drawWeapon);
   // }
-
-  if (game.type === 'classic') {
-    for (let i = 0; i < weapons.length - 2; i++) {
-      weapons[i].classList.remove('hidden');
-    }
-  } else {
-    for (let i = 0; i < weapons.length; i++) {
-      weapons[i].classList.remove('hidden');
-    }
-  }
+  //
+  // if (game.type === 'classic') {
+  //   for (let i = 0; i < weapons.length - 2; i++) {
+  //     weapons[i].classList.remove('hidden');
+  //   }
+  // } else {
+  //   for (let i = 0; i < weapons.length; i++) {
+  //     weapons[i].classList.remove('hidden');
+  //   }
+  // }
 }
 
 function hideWeapons() {
