@@ -5,11 +5,8 @@
 }
 
 .arena {
+  padding: 20px 10px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 5px;
 }
 
 .arsenal {
@@ -40,6 +37,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #C56AF0;
+  max-width: 80vw;
 }
 
 .message {
@@ -78,6 +76,7 @@
 }
 
 .player {
+  min-width: 20vw;
   padding: 40px 10px;
   display: flex;
   flex-direction: column;
@@ -88,9 +87,6 @@
 
 .player_human {
   grid-row: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .player__avatar {
@@ -113,8 +109,4 @@
 
 .hidden {
   display: none;
-}
-
-.unclickable {
-  pointer-events: none;
 }

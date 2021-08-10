@@ -11,12 +11,8 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-    const wins = localStorage.getItem(this.name + 'Wins');
-    if (!wins) {
-      return 0;
-    } else {
-      return wins;
-    }
+    const storedWins = localStorage.getItem(this.name + 'Wins');
+    storedWins ? this.wins = storedWins : this.wins = 0;
   }
 
   takeTurn(weapon) {
@@ -24,7 +20,6 @@ class Player {
       const weapons = ['rock', 'paper', 'scissors'];
       const randomIndex = Math.floor(Math.random() * 3)
       this.weapon = weapons[randomIndex];
-      return `.js-${game.computer.weapon}`
     } else {
       this.weapon = weapon;
     }

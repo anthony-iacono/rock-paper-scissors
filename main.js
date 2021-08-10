@@ -1,96 +1,100 @@
-const game = new Game;
-const classicMode = document.querySelector('.js-classic-mode');
 const advancedMode = document.querySelector('.js-advanced-mode');
-const modeSection = document.querySelector('.js-mode-section');
+const arena = document.querySelector('.js-arena');
 const arsenal = document.querySelector('.js-arsenal');
-const weapons = document.querySelectorAll('.js-weapon');
-const rock = document.querySelector('.js-rock');
-const paper = document.querySelector('.js-paper');
-const scissors = document.querySelector('.js-scissors');
-const spock = document.querySelector('.js-spock');
-const lizard = document.querySelector('.js-lizard');
-const resetBtn = document.querySelector('.js-reset-btn');
 const changeGameBtn = document.querySelector('.js-change-game-btn');
+const classicMode = document.querySelector('.js-classic-mode');
+const game = new Game;
+const lizard = document.querySelector('.js-lizard');
+const modeSection = document.querySelector('.js-mode-section');
+const resetWinsBtn = document.querySelector('.js-reset-btn');
+const spock = document.querySelector('.js-spock');
+const weapons = document.querySelectorAll('.js-weapon');
+
 let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
-let isDraw;
-let drawWeapon;
-
-game.human.wins = game.human.retrieveWinsFromStorage();
-game.computer.wins = game.computer.retrieveWinsFromStorage();
-
-message.innerText = game.message;
-humanCounter.innerText = game.human.retrieveWinsFromStorage();
-computerCounter.innerText = game.computer.retrieveWinsFromStorage();
 
 classicMode.addEventListener('click', startClassicGame);
+advancedMode.addEventListener('click', startAdvancedGame);
 arsenal.addEventListener('click', function() {fight(event)});
-resetBtn.addEventListener('click', resetAndRefresh);
+resetWinsBtn.addEventListener('click', resetWins);
 changeGameBtn.addEventListener('click', changeGame);
 
-function startClassicGame() {
-  game.type = 'classic';
-  message.innerText = 'Choose your fighter!';
-  modeSection.classList.add('hidden');
-  arsenal.classList.remove('hidden');
-  changeGameBtn.classList.remove('hidden');
+updateWins();
+
+function changeGame() {
+  changeGameBtn.classList.add('hidden');
+  hideAllWeapons();
+  arsenal.classList.add('hidden');
+  modeSection.classList.remove('hidden');
+  updateMessage('Choose your game!')
 }
 
 function fight(event) {
-  const humanWeapon = event.target.alt;
-  game.human.takeTurn(humanWeapon);
-  const computerWeapon = game.computer.takeTurn();
-  weapons.forEach((img) => img.classList.add('hidden'));
-  event.target.classList.remove('hidden');
-  for (let i = 0; i < weapons.length; i++) {
-    if (weapons[i].matches(computerWeapon)) {
-      weapons[i].classList.remove('hidden');
-    }
-  }
-
-  const outcome = game.checkForWin();
-  if (outcome === 'draw') {
-    const humanWeaponEl = document.querySelector(`.js-${humanWeapon}`);
-    drawWeapon = humanWeaponEl.cloneNode(false);
-    arsenal.appendChild(drawWeapon);
-    isDraw = true;
-  } else {
-    isDraw = false;
-  }
-  message.innerText = game.message;
-  humanCounter.innerText = game.human.wins;
-  computerCounter.innerText = game.computer.wins;
-  arsenal.classList.add('unclickable');
-  setTimeout(resetArsenal, 2.0 * 1000);
+  game.checkForWin(event.target.alt);
+  updateMessage(game.message);
+  showArena();
+  updateWins();
+  setTimeout(resetGameBoard, 2.0 * 1000);
 }
 
-function resetAndRefresh () {
+function hideAllWeapons() {
+  weapons.forEach((weapon) => weapon.classList.add('hidden'));
+}
+
+function resetGameBoard () {
+  updateMessage('Choose your fighter!');
+  arsenal.classList.remove('hidden');
+  arena.classList.add('hidden');
+}
+
+function resetWins () {
   localStorage.clear();
   location.reload();
 }
 
-function changeGame() {
-  modeSection.classList.remove('hidden');
-  arsenal.classList.add('hidden');
-  changeGameBtn.classList.add('hidden');
+function showAllWeapons() {
+  weapons.forEach((weapon) => weapon.classList.remove('hidden'));
 }
 
-function resetArsenal () {
-  message.innerText = 'Choose your fighter!';
-  arsenal.classList.remove('hidden');
-  arsenal.classList.remove('unclickable');
-  if (isDraw) {
-    arsenal.removeChild(drawWeapon);
-  }
+function showArena() {
+  const humanWeapon = document.querySelector(`.js-${game.human.weapon}`);
+  const computerWeapon = document.querySelector(`.js-${game.computer.weapon}`);
+  arsenal.classList.add('hidden');
+  arena.classList.remove('hidden');
+  arena.innerHTML = '';
+  arena.append(humanWeapon.cloneNode(), computerWeapon.cloneNode());
+}
 
-  if (game.type === 'classic') {
-    for (let i = 0; i < weapons.length - 2; i++) {
-      weapons[i].classList.remove('hidden');
-    }
-  } else {
-    for (let i = 0; i < weapons.length; i++) {
-      weapons[i].classList.remove('hidden');
-    }
-  }
+function showArsenal() {
+  modeSection.classList.add('hidden');
+  arsenal.classList.remove('hidden');
+  changeGameBtn.classList.remove('hidden');
+  updateMessage('Choose your fighter!');
+}
+
+function startAdvancedGame() {
+  game.type = 'advanced';
+  showArsenal();
+  showAllWeapons();
+}
+
+function startClassicGame() {
+  game.type = 'classic';
+  showArsenal();
+  showAllWeapons();
+  spock.classList.add('hidden');
+  lizard.classList.add('hidden');
+}
+
+function updateMessage(newMessage) {
+  game.message = newMessage;
+  message.innerText = game.message;
+}
+
+function updateWins() {
+  game.human.retrieveWinsFromStorage();
+  game.computer.retrieveWinsFromStorage();
+  humanCounter.innerText = game.human.wins
+  computerCounter.innerText = game.computer.wins
 }
