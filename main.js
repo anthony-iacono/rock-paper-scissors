@@ -15,8 +15,6 @@ const changeGameBtn = document.querySelector('.js-change-game-btn');
 let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
-let isDraw;
-let drawWeapon;
 
 game.human.wins = game.human.retrieveWinsFromStorage();
 game.computer.wins = game.computer.retrieveWinsFromStorage();
@@ -54,6 +52,7 @@ function showArsenal() {
 function fight(event) {
   game.human.takeTurn(event.target.alt);
   game.computer.takeTurn();
+  game.checkForWin();
   const humanWeapon = document.querySelector(`.js-${game.human.weapon}`);
   const computerWeapon = document.querySelector(`.js-${game.computer.weapon}`);
   const humanWeaponClone = humanWeapon.cloneNode();
@@ -62,33 +61,16 @@ function fight(event) {
   arsenal.classList.add('hidden');
   arena.classList.remove('hidden');
   arena.innerHTML = '';
-  arena.classList.add('unclickable');
   arena.appendChild(humanWeaponClone);
   arena.appendChild(computerWeaponClone);
   message.innerText = game.message;
+  updateWinCounters();
+  setTimeout(resetGameBoard, 2.0 * 1000);
+}
+
+function updateWinCounters() {
   humanCounter.innerText = game.human.wins;
   computerCounter.innerText = game.computer.wins;
-  setTimeout(resetGameBoard, 2.0 * 1000);
-
-  // weapons.forEach((img) => img.classList.add('hidden'));
-  // event.target.classList.remove('hidden');
-  // for (let i = 0; i < weapons.length; i++) {
-  //   if (weapons[i].matches(computerWeapon)) {
-  //     weapons[i].classList.remove('hidden');
-  //   }
-  // }
-
-  // const outcome = game.checkForWin();
-  // if (outcome === 'draw') {
-  //
-  //   drawWeapon = humanWeaponEl.cloneNode(false);
-  //   arsenal.appendChild(drawWeapon);
-  //   isDraw = true;
-  // } else {
-  //   isDraw = false;
-  // }
-
-
 }
 
 function resetScore () {
@@ -105,26 +87,11 @@ function changeGame() {
 }
 
 function resetGameBoard () {
-  message.innerText = 'Choose your fighter!';
+  message.innerText = game.message;
   arsenal.classList.remove('hidden');
   arena.classList.add('hidden');
-  arena.classList.remove('unclickable');
   arena.removeChild(computerWeaponClone);
   arena.removeChild(humanWeaponClone);
-  //
-  // if (isDraw) {
-  //   arsenal.removeChild(drawWeapon);
-  // }
-  //
-  // if (game.type === 'classic') {
-  //   for (let i = 0; i < weapons.length - 2; i++) {
-  //     weapons[i].classList.remove('hidden');
-  //   }
-  // } else {
-  //   for (let i = 0; i < weapons.length; i++) {
-  //     weapons[i].classList.remove('hidden');
-  //   }
-  // }
 }
 
 function hideWeapons() {
