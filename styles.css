@@ -17,6 +17,7 @@
 .arsenal__weapon {
   max-height: 100px;
   max-width: 100px;
+  cursor: pointer;
 }
 
 .body {
@@ -29,7 +30,8 @@
 
 .change-game-btn {
   background-color: #CD82EF;
-  text-transform: uppercase;gs
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .main {
@@ -53,6 +55,7 @@
   justify-content: center;
   align-items: center;
   background-color: #AA4AD9;
+  cursor: pointer;
 }
 
 .mode__heading {
@@ -76,7 +79,8 @@
 }
 
 .player {
-  min-width: 20vw;
+  min-width: 120px;
+  width: 20vw;
   padding: 40px 10px;
   display: flex;
   flex-direction: column;
