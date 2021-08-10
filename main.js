@@ -9,12 +9,10 @@ const modeSection = document.querySelector('.js-mode-section');
 const resetWinsBtn = document.querySelector('.js-reset-btn');
 const spock = document.querySelector('.js-spock');
 const weapons = document.querySelectorAll('.js-weapon');
+
 let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
-
-updateMessage('Choose your fighter!');
-updateWins();
 
 classicMode.addEventListener('click', startClassicGame);
 advancedMode.addEventListener('click', startAdvancedGame);
@@ -22,25 +20,14 @@ arsenal.addEventListener('click', function() {fight(event)});
 resetWinsBtn.addEventListener('click', resetWins);
 changeGameBtn.addEventListener('click', changeGame);
 
-function startClassicGame() {
-  game.type = 'classic';
-  showArsenal();
-  showAllWeapons();
-  spock.classList.add('hidden');
-  lizard.classList.add('hidden');
-}
+updateWins();
 
-function startAdvancedGame() {
-  game.type = 'advanced';
-  showArsenal();
-  showAllWeapons();
-}
-
-function showArsenal() {
-  modeSection.classList.add('hidden');
-  arsenal.classList.remove('hidden');
-  changeGameBtn.classList.remove('hidden');
-  updateMessage('Choose your fighter!');
+function changeGame() {
+  changeGameBtn.classList.add('hidden');
+  hideAllWeapons();
+  arsenal.classList.add('hidden');
+  modeSection.classList.remove('hidden');
+  updateMessage('Choose your game!')
 }
 
 function fight(event) {
@@ -49,6 +36,25 @@ function fight(event) {
   showArena();
   updateWins();
   setTimeout(resetGameBoard, 2.0 * 1000);
+}
+
+function hideAllWeapons() {
+  weapons.forEach((weapon) => weapon.classList.add('hidden'));
+}
+
+function resetGameBoard () {
+  updateMessage('Choose your fighter!');
+  arsenal.classList.remove('hidden');
+  arena.classList.add('hidden');
+}
+
+function resetWins () {
+  localStorage.clear();
+  location.reload();
+}
+
+function showAllWeapons() {
+  weapons.forEach((weapon) => weapon.classList.remove('hidden'));
 }
 
 function showArena() {
@@ -60,11 +66,25 @@ function showArena() {
   arena.append(humanWeapon.cloneNode(), computerWeapon.cloneNode());
 }
 
-function updateWins() {
-  game.human.retrieveWinsFromStorage();
-  game.computer.retrieveWinsFromStorage();
-  humanCounter.innerText = game.human.wins
-  computerCounter.innerText = game.computer.wins
+function showArsenal() {
+  modeSection.classList.add('hidden');
+  arsenal.classList.remove('hidden');
+  changeGameBtn.classList.remove('hidden');
+  updateMessage('Choose your fighter!');
+}
+
+function startAdvancedGame() {
+  game.type = 'advanced';
+  showArsenal();
+  showAllWeapons();
+}
+
+function startClassicGame() {
+  game.type = 'classic';
+  showArsenal();
+  showAllWeapons();
+  spock.classList.add('hidden');
+  lizard.classList.add('hidden');
 }
 
 function updateMessage(newMessage) {
@@ -72,29 +92,9 @@ function updateMessage(newMessage) {
   message.innerText = game.message;
 }
 
-function resetWins () {
-  localStorage.clear();
-  location.reload();
-}
-
-function changeGame() {
-  changeGameBtn.classList.add('hidden');
-  hideAllWeapons();
-  arsenal.classList.add('hidden');
-  modeSection.classList.remove('hidden');
-  updateMessage('Choose your game!')
-}
-
-function resetGameBoard () {
-  updateMessage('Choose your fighter!');
-  arsenal.classList.remove('hidden');
-  arena.classList.add('hidden');
-}
-
-function hideAllWeapons() {
-  weapons.forEach((weapon) => weapon.classList.add('hidden'));
-}
-
-function showAllWeapons() {
-  weapons.forEach((weapon) => weapon.classList.remove('hidden'));
+function updateWins() {
+  game.human.retrieveWinsFromStorage();
+  game.computer.retrieveWinsFromStorage();
+  humanCounter.innerText = game.human.wins
+  computerCounter.innerText = game.computer.wins
 }

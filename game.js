@@ -1,7 +1,7 @@
 class Game {
   constructor() {
     this.type;
-    this.message;
+    this.message = 'Choose your fighter!';
     this.human = new Player('Human', '🤓');
     this.computer = new Player('Computer', '💻');
   }
