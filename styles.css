@@ -4,10 +4,14 @@
   color: white;
 }
 
-.arsenal, .arena {
+.arena {
   padding: 20px 10px;
   display: flex;
-  max-width: 80vw;
+}
+
+.arsenal {
+  padding: 20px 10px;
+  display: flex;
 }
 
 .arsenal__weapon {
@@ -108,8 +112,4 @@
 
 .hidden {
   display: none;
-}
-
-.unclickable {
-  pointer-events: none;
 }

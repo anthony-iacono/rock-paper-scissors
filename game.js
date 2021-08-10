@@ -6,8 +6,10 @@ class Game {
     this.computer = new Player('Computer', '💻');
   }
 
-  checkForWin() {
-    if (this.draw()) {
+  checkForWin(weapon) {
+    this.human.takeTurn(weapon);
+    this.computer.takeTurn();
+    if (this.human.weapon === this.computer.weapon) {
       this.message = '🤓 It\'s a draw! 💻'
     } else if (this.humanWon()) {
       this.human.wins++;
@@ -20,46 +22,34 @@ class Game {
     }
   }
 
-  draw() {
-    return this.human.weapon === this.computer.weapon;
-  }
-
   humanWon() {
-    return this.choseRock() || this.chosePaper() || this.choseScissors() || this.choseSpock() || this.choseLizard();
+    return this.choseRock() || this.chosePaper() || this.choseScissors()
+    || this.choseSpock() || this.choseLizard();
   }
 
   choseRock() {
-    return this.human.weapon === 'rock' && (
-      this.computer.weapon === 'scissors'
-      || this.computer.weapon === 'lizard'
-    );
+    return this.human.weapon === 'rock' && (this.computer.weapon === 'scissors'
+    || this.computer.weapon === 'lizard');
   }
 
   chosePaper() {
-    return this.human.weapon === 'paper' && (
-      this.computer.weapon === 'rock'
-      || this.computer.weapon === 'spock'
-    );
+    return this.human.weapon === 'paper' && (this.computer.weapon === 'rock'
+    || this.computer.weapon === 'spock');
   }
 
   choseScissors() {
     return this.human.weapon === 'scissors' && (
-      this.computer.weapon === 'paper'
-      || this.computer.weapon === 'lizard'
+      this.computer.weapon === 'paper' || this.computer.weapon === 'lizard'
     );
   }
 
   choseSpock() {
-    return this.human.weapon === 'spock' && (
-      this.computer.weapon === 'rock'
-      || this.computer.weapon === 'scissors'
-    );
+    return this.human.weapon === 'spock' && (this.computer.weapon === 'rock'
+    || this.computer.weapon === 'scissors');
   }
 
   choseLizard() {
-    return this.human.weapon === 'lizard' && (
-      this.computer.weapon === 'paper'
-      || this.computer.weapon === 'spock'
-    );
+    return this.human.weapon === 'lizard' && (this.computer.weapon === 'paper'
+    || this.computer.weapon === 'spock');
   }
 }

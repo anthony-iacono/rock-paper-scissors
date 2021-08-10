@@ -25,6 +25,7 @@ changeGameBtn.addEventListener('click', changeGame);
 function startClassicGame() {
   game.type = 'classic';
   showArsenal();
+  showAllWeapons();
   spock.classList.add('hidden');
   lizard.classList.add('hidden');
 }
@@ -32,6 +33,7 @@ function startClassicGame() {
 function startAdvancedGame() {
   game.type = 'advanced';
   showArsenal();
+  showAllWeapons();
 }
 
 function showArsenal() {
@@ -42,22 +44,20 @@ function showArsenal() {
 }
 
 function fight(event) {
-  game.human.takeTurn(event.target.alt);
-  game.computer.takeTurn();
-  game.checkForWin();
+  game.checkForWin(event.target.alt);
+  updateMessage(game.message);
+  showArena();
+  updateWins();
+  setTimeout(resetGameBoard, 2.0 * 1000);
+}
+
+function showArena() {
   const humanWeapon = document.querySelector(`.js-${game.human.weapon}`);
   const computerWeapon = document.querySelector(`.js-${game.computer.weapon}`);
-  const humanWeaponClone = humanWeapon.cloneNode();
-  const computerWeaponClone = computerWeapon.cloneNode();
-
   arsenal.classList.add('hidden');
   arena.classList.remove('hidden');
   arena.innerHTML = '';
-  arena.appendChild(humanWeaponClone);
-  arena.appendChild(computerWeaponClone);
-  updateMessage();
-  updateWins();
-  setTimeout(resetGameBoard, 2.0 * 1000);
+  arena.append(humanWeapon.cloneNode(), computerWeapon.cloneNode());
 }
 
 function updateWins() {
@@ -68,18 +68,18 @@ function updateWins() {
 }
 
 function updateMessage(newMessage) {
-  if (newMessage) {game.message = newMessage};
+  game.message = newMessage;
   message.innerText = game.message;
 }
 
 function resetWins () {
   localStorage.clear();
   location.reload();
-  hideWeapons();
 }
 
 function changeGame() {
   changeGameBtn.classList.add('hidden');
+  hideAllWeapons();
   arsenal.classList.add('hidden');
   modeSection.classList.remove('hidden');
   updateMessage('Choose your game!')
@@ -91,6 +91,10 @@ function resetGameBoard () {
   arena.classList.add('hidden');
 }
 
-function hideWeapons() {
+function hideAllWeapons() {
   weapons.forEach((weapon) => weapon.classList.add('hidden'));
+}
+
+function showAllWeapons() {
+  weapons.forEach((weapon) => weapon.classList.remove('hidden'));
 }
