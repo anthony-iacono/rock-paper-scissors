@@ -1,31 +1,25 @@
-const game = new Game;
-const arena = document.querySelector('.js-arena');
-const classicMode = document.querySelector('.js-classic-mode');
 const advancedMode = document.querySelector('.js-advanced-mode');
-const modeSection = document.querySelector('.js-mode-section');
+const arena = document.querySelector('.js-arena');
 const arsenal = document.querySelector('.js-arsenal');
-const weapons = document.querySelectorAll('.js-weapon');
-// const rock = document.querySelector('.js-rock');
-// const paper = document.querySelector('.js-paper');
-// const scissors = document.querySelector('.js-scissors');
-const spock = document.querySelector('.js-spock');
-const lizard = document.querySelector('.js-lizard');
-const resetScoreBtn = document.querySelector('.js-reset-btn');
 const changeGameBtn = document.querySelector('.js-change-game-btn');
+const classicMode = document.querySelector('.js-classic-mode');
+const game = new Game;
+const lizard = document.querySelector('.js-lizard');
+const modeSection = document.querySelector('.js-mode-section');
+const resetWinsBtn = document.querySelector('.js-reset-btn');
+const spock = document.querySelector('.js-spock');
+const weapons = document.querySelectorAll('.js-weapon');
 let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
 
-game.human.wins = game.human.retrieveWinsFromStorage();
-game.computer.wins = game.computer.retrieveWinsFromStorage();
-
-updateMessage();
-updateWinCounters();
+updateMessage('Choose your fighter!');
+updateWins();
 
 classicMode.addEventListener('click', startClassicGame);
 advancedMode.addEventListener('click', startAdvancedGame);
 arsenal.addEventListener('click', function() {fight(event)});
-resetScoreBtn.addEventListener('click', resetScore);
+resetWinsBtn.addEventListener('click', resetWins);
 changeGameBtn.addEventListener('click', changeGame);
 
 function startClassicGame() {
@@ -62,24 +56,23 @@ function fight(event) {
   arena.appendChild(humanWeaponClone);
   arena.appendChild(computerWeaponClone);
   updateMessage();
-  updateWinCounters();
+  updateWins();
   setTimeout(resetGameBoard, 2.0 * 1000);
 }
 
-function updateWinCounters() {
-  humanCounter.innerText = game.human.retrieveWinsFromStorage();
-  computerCounter.innerText = game.computer.retrieveWinsFromStorage();
+function updateWins() {
+  game.human.retrieveWinsFromStorage();
+  game.computer.retrieveWinsFromStorage();
+  humanCounter.innerText = game.human.wins
+  computerCounter.innerText = game.computer.wins
 }
 
 function updateMessage(newMessage) {
-  if (newMessage) {
-    game.message = newMessage;
-  }
-
+  if (newMessage) {game.message = newMessage};
   message.innerText = game.message;
 }
 
-function resetScore () {
+function resetWins () {
   localStorage.clear();
   location.reload();
   hideWeapons();

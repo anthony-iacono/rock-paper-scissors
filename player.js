@@ -11,8 +11,8 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-    const wins = localStorage.getItem(this.name + 'Wins');
-    return wins ? wins : 0;
+    const storedWins = localStorage.getItem(this.name + 'Wins');
+    storedWins ? this.wins = storedWins : this.wins = 0;
   }
 
   takeTurn(weapon) {
