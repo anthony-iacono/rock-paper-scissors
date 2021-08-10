@@ -87,6 +87,7 @@ function resetAndRefresh () {
 function changeGame() {
   modeSection.classList.remove('hidden');
   arsenal.classList.add('hidden');
+  resetArsenal();
   changeGameBtn.classList.add('hidden');
 }
 

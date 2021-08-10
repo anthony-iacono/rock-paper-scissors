@@ -15,6 +15,7 @@
 .arsenal {
   padding: 20px 10px;
   display: flex;
+  max-width: 80vw;
 }
 
 .arsenal__weapon {
@@ -40,6 +41,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #C56AF0;
+  max-width: 80vw;
 }
 
 .message {
@@ -78,6 +80,7 @@
 }
 
 .player {
+  min-width: 20vw;
   padding: 40px 10px;
   display: flex;
   flex-direction: column;
