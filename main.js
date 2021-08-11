@@ -13,7 +13,6 @@ const weapons = document.querySelectorAll('.js-weapon');
 let computerCounter = document.querySelector('.js-computer-counter');
 let humanCounter = document.querySelector('.js-human-counter');
 let message = document.querySelector('.js-message');
-let timeout;
 
 classicMode.addEventListener('click', startClassicGame);
 advancedMode.addEventListener('click', startAdvancedGame);
@@ -25,7 +24,7 @@ updateWins();
 updateMessage(game.message);
 
 function changeGame() {
-  clearTimeout(timeout);
+  hideAllWeapons();
   changeGameBtn.classList.add('hidden');
   arsenal.classList.add('hidden');
   arena.classList.add('hidden');
@@ -38,7 +37,7 @@ function fight(event) {
   updateMessage(game.message);
   showArena();
   updateWins();
-  timeout = setTimeout(resetGameBoard, 2.0 * 1000);
+  setTimeout(resetGameBoard, 2.0 * 1000);
 }
 
 function hideAllWeapons() {
