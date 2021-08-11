@@ -1,92 +1,133 @@
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
   color: white;
+  font-family: sans-serif;
+  margin: 0;
 }
 
 .arena {
-  padding: 20px 10px;
   display: flex;
+  padding: 20px 10px;
+  pointer-events: none;
 }
 
 .arsenal {
-  padding: 20px 10px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 10px;
 }
 
 .arsenal__weapon {
-  max-height: 100px;
-  max-width: 100px;
+  height: 10vw;
+  min-height: 100px;
+  width: 10vw;
+  min-width: 100px;
+  padding: 10px;
   cursor: pointer;
 }
 
 .body {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  margin: 0;
   align-items: stretch;
   height: 100vh;
 }
 
 .change-game-btn {
-  background-color: #CD82EF;
+  border: 0;
+  background-color: hsl(280 66% 48% / 1);
   text-transform: uppercase;
   cursor: pointer;
+  padding: 8px;
+  margin-top: 20px;
+}
+
+.change-game-btn:hover {
+  color: hsl(280 66% 48% / 1);
+  background-color: white;
 }
 
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #C56AF0;
+  background-color: hsl(281 82% 68% / 1);
   max-width: 80vw;
 }
 
 .message {
-  margin: 0;
   padding: 5px;
+  font-weight: normal;
+  text-align: center;
 }
 
 .mode {
-  margin: 0;
   padding: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #AA4AD9;
+  background-color: hsl(280 65% 55% / 1);
   cursor: pointer;
+  width: 230px;
+}
+
+.mode:hover {
+  color: hsl(280 65% 55% / 1);
+  background-color: white;
 }
 
 .mode__heading {
-  margin: 0;
   padding-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: inherit;
+  font-weight: normal;
 }
 
 .mode__rule {
-  margin: 0;
+  padding-bottom: 5px;
+  text-align: center;
+  color: inherit;
 }
 
 .mode-section {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   min-height: 400px;
+  width: 20vw;
+  min-width: 220px;
 }
 
-.mode-section__reset-wins-button {
-  background-color: gray;
+.mode-section__reset-wins-btn {
+  background-color: hsl(280 65% 55% / 1);
+  cursor: pointer;
+  color: white;
+  border: 0;
+  width: 50%;
+  padding: 8px;
+  font-size: 1em;
+}
+
+.mode-section__reset-wins-btn:hover {
+  background-color: white;
+  cursor: pointer;
+  color: hsl(280 65% 55% / 1);
 }
 
 .player {
-  min-width: 120px;
-  width: 20vw;
-  padding: 40px 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #CD82EF;
+  min-width: 120px;
+  width: 20vw;
+  padding: 40px 10px;
+  background-color: hsl(281 77% 55% / 1);
 }
 
 .player_human {
@@ -94,21 +135,23 @@
 }
 
 .player__avatar {
-  margin: 0;
   font-size: 2em;
+  background-color: inherit;
 }
 
 .player__type {
-  margin: 0;
+  font-size: 1.6em;
+  font-weight: normal;
 }
 
 .player__wins {
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 .title {
-  margin: 0;
   padding: 20px;
+  text-align: center;
+  font-size: calc(16px + 3vw);
 }
 
 .hidden {

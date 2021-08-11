@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body class="body">
     <main class="main">
-      <h1 class="title">Rock Paper Scissors</h1>
+      <h1 class="title">Rock, Paper, Scissors</h1>
       <h2 class="message js-message"></h2>
       <section class="mode-section js-mode-section">
         <article class="mode js-classic-mode">
-          <h2 class="mode__heading">Classic</h2>
+          <h2 class="mode__heading">🪨 Classic ✂️</h2>
           <p class="mode__rule">rock > scissors</p>
           <p class="mode__rule">scissors > paper</p>
           <p class="mode__rule">paper > rock</p>
         </article>
         <article class="mode js-advanced-mode">
-          <h2 class="mode__heading">Advanced</h2>
+          <h2 class="mode__heading">🖖 Advanced 🦎</h2>
           <p class="mode__rule">rock > scissors & lizard</p>
           <p class="mode__rule">scissors > paper & lizard</p>
           <p class="mode__rule">paper > rock & Spock</p>
           <p class="mode__rule">Spock > scissors & rock</p>
           <p class="mode__rule">lizard > paper & Spock</p>
         </article>
-        <button class="mode-section__reset-wins-button js-reset-btn">Reset Wins</button>
+        <button class="mode-section__reset-wins-btn js-reset-btn">Reset Wins</button>
       </section>
       <section class="arsenal hidden js-arsenal">
-        <img class="arsenal__weapon js-weapon js-rock" src="./assets/black-and-white-rocks.png" alt="rock">
-        <img class="arsenal__weapon js-weapon js-paper" src="./assets/black-and-white-paper.png" alt="paper">
-        <img class="arsenal__weapon js-weapon js-scissors" src="./assets/black-and-white-scissors.png" alt="scissors">
-        <img class="arsenal__weapon js-weapon js-spock" src="./assets/black-and-white-spock.png" alt="spock">
-        <img class="arsenal__weapon js-weapon js-lizard" src="./assets/black-and-white-lizard.png" alt="lizard">
+        <img class="arsenal__weapon js-weapon js-rock" src="./assets/happy-rocks.png" alt="rock">
+        <img class="arsenal__weapon js-weapon js-paper" src="./assets/happy-paper.png" alt="paper">
+        <img class="arsenal__weapon js-weapon js-scissors" src="./assets/happy-scissors.png" alt="scissors">
+        <img class="arsenal__weapon js-weapon js-spock" src="./assets/vulcan-salute.png" alt="spock">
+        <img class="arsenal__weapon js-weapon js-lizard" src="./assets/lizard.png" alt="lizard">
       </section>
-      <section class="arena hidden js-arena"></section>
+      <section class="arena hidden js-arena">
+      </section>
     </main>
     <section class="player player_human">
       <span class="player__avatar">🤓</span>
@@ -41,10 +42,9 @@
       <button class="change-game-btn js-change-game-btn hidden">Change game?</button>
     </section>
     <section class="player">
-        <span class="player__avatar">💻</span>
-        <h2 class="player__type">Computer</h2>
-        <p>Wins: <span class="player__wins js-computer-counter">0</span>
-      </article>
+      <span class="player__avatar">💻</span>
+      <h2 class="player__type">Computer</h2>
+      <p class="player__wins">Wins: <span class="js-computer-counter">0</span>
     </section>
   </body>
   <script type="text/javascript" src="player.js"></script>
