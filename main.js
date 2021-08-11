@@ -24,7 +24,7 @@ updateWins();
 updateMessage(game.message);
 
 function changeGame() {
-  hideAllWeapons();
+  clearTimeout(game.timeoutId);
   changeGameBtn.classList.add('hidden');
   arsenal.classList.add('hidden');
   arena.classList.add('hidden');
@@ -37,7 +37,7 @@ function fight(event) {
   updateMessage(game.message);
   showArena();
   updateWins();
-  setTimeout(resetGameBoard, 2.0 * 1000);
+  game.timeoutId = setTimeout(resetGameBoard, 2.0 * 1000);
 }
 
 function hideAllWeapons() {
