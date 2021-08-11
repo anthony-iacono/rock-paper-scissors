@@ -52,7 +52,7 @@
 .message {
   margin: 0;
   padding: 5px;
-  font-size: 50%;
+  font-size:1.5rem;
 }
 
 .mode {
@@ -69,6 +69,8 @@
 .mode__heading {
   margin: 0;
   padding-bottom: 5px;
+  text-transform: uppercase;
+  font-size: calc(8px + 1.5vw);
 }
 
 .mode__rule {
@@ -82,7 +84,7 @@
   justify-content: space-around;
   min-height: 400px;
   width: 20vw;
-  min-width: 200px;
+  min-width: 220px;
 }
 
 .mode-section__reset-wins-btn {
@@ -123,8 +125,7 @@
   margin: 0;
   padding: 20px;
   text-align: center;
-  font-size: 5vw;
-
+  font-size: calc(12px + 3vw);
 }
 
 .hidden {
