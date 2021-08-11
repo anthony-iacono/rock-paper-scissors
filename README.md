@@ -8,7 +8,7 @@ The classic game we all know and love, built from scratch. Read more on [Wikiped
 
 ## Technologies
 - HTML
-- CSS
+- CSS (using [BEM methodology](https://en.bem.info/methodology/))
 - JavaScript
 - GitHub Projects
 
