@@ -22,6 +22,7 @@ resetWinsBtn.addEventListener('click', resetWins);
 changeGameBtn.addEventListener('click', changeGame);
 
 updateWins();
+updateMessage(game.message);
 
 function changeGame() {
   clearTimeout(timeout);

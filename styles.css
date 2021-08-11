@@ -52,7 +52,7 @@
 .message {
   margin: 0;
   padding: 5px;
-  font-size:1.5rem;
+/*   font-size:1.5rem; */
 }
 
 .mode {
@@ -66,16 +66,23 @@
   cursor: pointer;
 }
 
+.mode:hover {
+  color: #AA4AD9;
+  background-color: white;
+}
+
 .mode__heading {
   margin: 0;
   padding-bottom: 5px;
   text-transform: uppercase;
   font-size: calc(8px + 1.5vw);
+  color: inherit;
 }
 
 .mode__rule {
   margin: 0;
   text-align: center;
+  color: inherit;
 }
 
 .mode-section {
