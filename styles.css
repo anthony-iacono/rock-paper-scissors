@@ -37,14 +37,14 @@
 
 .change-game-btn {
   border: 0;
-  background-color: #A94ADA;
+  background-color: hsl(280 66% 48% / 1);
   text-transform: uppercase;
   cursor: pointer;
   padding: 8px;
 }
 
 .change-game-btn:hover {
-  color: #A94ADA;
+  color: hsl(280 66% 48% / 1);
   background-color: white;
 }
 
@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #C56AF0;
+  background-color: hsl(281 82% 68% / 1);
   max-width: 80vw;
 }
 
@@ -70,13 +70,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #AA4AD9;
+  background-color: hsl(280 65% 55% / 1);
   cursor: pointer;
   width: 230px;
 }
 
 .mode:hover {
-  color: #AA4AD9;
+  color: hsl(280 65% 55% / 1);
   background-color: white;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .mode-section__reset-wins-btn {
-  background-color: #AA4AD9;
+  background-color: hsl(280 65% 55% / 1);
   cursor: pointer;
   color: white;
   border: 0;
@@ -118,7 +118,7 @@
 .mode-section__reset-wins-btn:hover {
   background-color: white;
   cursor: pointer;
-  color: #AA4AD9;
+  color: hsl(280 65% 55% / 1);
 }
 
 .player {
@@ -129,7 +129,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #CD82EF;
+  background-color: hsl(281 77% 55% / 1);
 }
 
 .player_human {
@@ -139,11 +139,12 @@
 .player__avatar {
   margin: 0;
   font-size: 2em;
+  background-color: inherit;
 }
 
 .player__type {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.6em;
   font-weight: normal;
 }
 
