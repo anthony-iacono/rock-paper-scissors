@@ -29,7 +29,7 @@ function changeGame() {
   arsenal.classList.add('hidden');
   arena.classList.add('hidden');
   modeSection.classList.remove('hidden');
-  updateMessage('Choose your game!')
+  updateMessage('Choose your game!');
 }
 
 function fight(event) {
