@@ -36,9 +36,16 @@
 }
 
 .change-game-btn {
-  background-color: #CD82EF;
+  border: 0;
+  background-color: #A94ADA;
   text-transform: uppercase;
   cursor: pointer;
+  padding: 8px;
+}
+
+.change-game-btn:hover {
+  color: #A94ADA;
+  background-color: white;
 }
 
 .main {
@@ -52,7 +59,8 @@
 .message {
   margin: 0;
   padding: 5px;
-/*   font-size:1.5rem; */
+  font-weight: normal;
+  text-align: center;
 }
 
 .mode {
@@ -64,6 +72,7 @@
   align-items: center;
   background-color: #AA4AD9;
   cursor: pointer;
+  width: 230px;
 }
 
 .mode:hover {
@@ -75,8 +84,9 @@
   margin: 0;
   padding-bottom: 5px;
   text-transform: uppercase;
-  font-size: calc(8px + 1.5vw);
+  font-size: 1.5em;
   color: inherit;
+  font-weight: normal;
 }
 
 .mode__rule {
@@ -89,14 +99,26 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   min-height: 400px;
   width: 20vw;
   min-width: 220px;
 }
 
 .mode-section__reset-wins-btn {
-  background-color: gray;
+  background-color: #AA4AD9;
   cursor: pointer;
+  color: white;
+  border: 0;
+  width: 50%;
+  padding: 8px;
+  font-size: 1em;
+}
+
+.mode-section__reset-wins-btn:hover {
+  background-color: white;
+  cursor: pointer;
+  color: #AA4AD9;
 }
 
 .player {
@@ -121,7 +143,8 @@
 
 .player__type {
   margin: 0;
-  font-size: 3vw;
+  font-size: 1.5em;
+  font-weight: normal;
 }
 
 .player__wins {
