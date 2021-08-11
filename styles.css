@@ -120,13 +120,13 @@
 }
 
 .player {
-  min-width: 120px;
-  width: 20vw;
-  padding: 40px 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  min-width: 120px;
+  width: 20vw;
+  padding: 40px 10px;
   background-color: hsl(281 77% 55% / 1);
 }
 
@@ -151,7 +151,7 @@
 .title {
   padding: 20px;
   text-align: center;
-  font-size: calc(12px + 3vw);
+  font-size: calc(16px + 3vw);
 }
 
 .hidden {
