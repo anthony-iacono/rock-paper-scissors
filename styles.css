@@ -13,12 +13,18 @@
 .arsenal {
   padding: 20px 10px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .arsenal__weapon {
-  max-height: 100px;
-  max-width: 100px;
+  height: 10vw;
+  min-height: 100px;
+  width: 10vw;
+  min-width: 100px;
   cursor: pointer;
+  padding: 10px;
 }
 
 .body {
@@ -46,6 +52,7 @@
 .message {
   margin: 0;
   padding: 5px;
+  font-size: 50%;
 }
 
 .mode {
@@ -67,7 +74,6 @@
 .mode__rule {
   margin: 0;
   text-align: center;
-/*   width: 100%; */
 }
 
 .mode-section {
@@ -106,6 +112,7 @@
 
 .player__type {
   margin: 0;
+  font-size: 3vw;
 }
 
 .player__wins {
@@ -116,6 +123,8 @@
   margin: 0;
   padding: 20px;
   text-align: center;
+  font-size: 5vw;
+
 }
 
 .hidden {
