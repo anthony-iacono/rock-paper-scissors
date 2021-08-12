@@ -11,7 +11,7 @@ class Game {
     this.human.takeTurn(weapon);
     this.computer.takeTurn();
     if (this.human.weapon === this.computer.weapon) {
-      this.message = '🤓 It\'s a draw! 💻'
+      this.message = '🤓 It\'s a draw! 💻';
     } else if (this.humanWon()) {
       this.human.wins++;
       this.human.saveWinsToStorage();

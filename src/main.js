@@ -40,10 +40,6 @@ function fight(event) {
   game.timeoutId = setTimeout(resetGameBoard, 2.0 * 1000);
 }
 
-function hideAllWeapons() {
-  weapons.forEach((weapon) => weapon.classList.add('hidden'));
-}
-
 function resetGameBoard () {
   updateMessage('Choose your fighter!');
   arsenal.classList.remove('hidden');
