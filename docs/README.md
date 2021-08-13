@@ -1,6 +1,8 @@
 # Rock Paper Scissors
 The classic game we all know and love, built from scratch. Read more on [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors).
 
+[Play Rock Paper Scissors](https://anthony-iacono.github.io/rock-paper-scissors)
+
 ## Goals
 - Solidify and demonstrate understanding of DRY JavaScript, localStorage to persist data, and event delegation to handle similar event listeners
 - Understand the difference between the data model and how the data is displayed on the DOM
