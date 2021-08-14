@@ -41,3 +41,5 @@ The classic game we all know and love, built from scratch. Read more on [Wikiped
 #### Arena
 ![Screen Shot 2021-08-10 at 8 09 11 PM](https://user-images.githubusercontent.com/72999840/128963662-7045be50-da21-470c-bb94-3d0fbd9d020e.png)
 
+## Contributions
+Project specifications and assets provided by Turing School of Software & Design @turingschool
