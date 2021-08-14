@@ -4,9 +4,9 @@ The classic game we all know and love, built from scratch. Read more on [Wikiped
 [Play Rock Paper Scissors](https://anthony-iacono.github.io/rock-paper-scissors)
 
 ## Goals
-- Solidify and demonstrate understanding of DRY JavaScript, localStorage to persist data, and event delegation to handle similar event listeners
+- Demonstrate proficiency in writing DRY JavaScript, using local storage, and leveraging event delegation to handle multiple event listeners
 - Understand the difference between the data model and how the data is displayed on the DOM
-- Use problem solving process to break down large problems, solve things step by step, and trust self to not rely on an outside “answer” to a logical challenge
+- Use problem solving process to break down large problems into individual steps
 
 ## Technologies
 - HTML
@@ -14,25 +14,21 @@ The classic game we all know and love, built from scratch. Read more on [Wikiped
 - JavaScript
 - GitHub Projects
 
-## Code Architecture
+## Architecture
 - Player Class (player.js)
-  - Constructor with name, token, wins, and weapon properties
-  - Save and retrieve wins to local storage
-  - Take turn in the game
+  - Properties of name, token, wins, and weapon
+  - Methods for saving and retrieving wins to/from local storage, as well as taking a turn during gameplay
 - Game Class (game.js)
-  - Two Player instances
-  - Game board data, including selected game type and message
-  - Check for win and draw conditions
+  - Properties for game board data, including mode and message
+  - Two Player instances (human and computer)
+  - Methods to check for win and draw conditions
 - Main (main.js)
-  - Contains all DOM related JavaScript
+  - All DOM manipulation
 
-## Challenges & Wins
-- Deciding what should be stored in the data model was a challenge. Where it seemed more efficient, I used functions in main.js to both manipulate the DOM and update the data model, rather than updating the data model exclusively in the class files.
-- Experimenting with different ways of sizing boxes and fonts to make the page more responsive.
-- Using WAVE to detect accessibility issues (originally threw 17 contrast errors!), and then figuring out how to resolve them.
-
-## Reflection
-This project was both fun and challenging at times. I appreciated having to make DOM vs data model decisions. I'm looking forward to sharing my code with other students to see how they made their decisions.
+## Challenges
+- I had to think carefully about which functions to store in the main file versus the class files. When it seemed more efficient, I chose to define functions in main.js that both manipulated the DOM and updated the data model held in the classes.
+- I tried a variety of units and approaches to sizing elements and text in CSS to make to respond to varying window sizes.
+- I used the WAVE Chrome extension to detect accessibility issues (originally throwing 17 contrast errors!), and made the necessary adjustments to make the app more accessible to users with visual impairments.
 
 ## Screenshots
 ### Start Page
