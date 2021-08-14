@@ -27,6 +27,7 @@ The classic game we all know and love, built from scratch. Read more on [Wikiped
 
 ## Challenges
 - I had to think carefully about which functions to store in the main file versus the class files. When it seemed more efficient, I chose to define functions in main.js that both manipulated the DOM and updated the data model held in the classes.
+- I applied the BEM methodology to this app from the ground up. Determining whether a given element should be a block or an element was a challenge, but iteratively reviewing the BEM documentation helped improve my naming conventions over the course of building the app.
 - I tried a variety of units and approaches to sizing elements and text in CSS to make to respond to varying window sizes.
 - I used the WAVE Chrome extension to detect accessibility issues (originally throwing 17 contrast errors!), and made the necessary adjustments to make the app more accessible to users with visual impairments.
 
