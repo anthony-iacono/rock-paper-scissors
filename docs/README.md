@@ -31,12 +31,12 @@ The classic game we all know and love, built from scratch. Read more on [Wikiped
 - I used the WAVE Chrome extension to detect accessibility issues (originally throwing 17 contrast errors!), and made the necessary adjustments to make the app more accessible to users with visual impairments.
 
 ## Screenshots
-### Start Page
+#### Start Page
 ![Screen Shot 2021-08-10 at 8 08 43 PM](https://user-images.githubusercontent.com/72999840/128963635-7036076b-957f-4cff-932e-a22b9f10c6f9.png)
-### Classic Mode
+#### Classic Mode
 ![Screen Shot 2021-08-10 at 8 09 07 PM](https://user-images.githubusercontent.com/72999840/128963648-8b249e52-f2a9-444f-8863-e5d9cc4d362c.png)
-### Advanced Mode
+#### Advanced Mode
 ![Screen Shot 2021-08-10 at 8 09 16 PM](https://user-images.githubusercontent.com/72999840/128963656-8d669f24-dd91-4d13-8722-fd678c7f2046.png)
-### Arena
+#### Arena
 ![Screen Shot 2021-08-10 at 8 09 11 PM](https://user-images.githubusercontent.com/72999840/128963662-7045be50-da21-470c-bb94-3d0fbd9d020e.png)
 
